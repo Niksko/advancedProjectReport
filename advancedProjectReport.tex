@@ -10,7 +10,7 @@
 \begin{document}
 
 \title{JEDy: A Julia package for Evolutionary Dynamics}
-\author{Nikolas M. Skoufis}
+\author{Nikolas M. Skoufis \\ Supervisor: Julia Garcia}
 \date{September 10th, 2014}
 
 \maketitle
@@ -28,6 +28,16 @@ The objectives of this advanced project are to:
 
 \end{itemize}
 
+\section*{Progress}
+
+So far I have been familiarising myself with the Julia language by attempting to replicate part of the results of a paper \cite{imhofetal} which studies the iterated prisoners dilemma.
+In the paper, the authors use both a deterministic model of evolutionary dynamics (the replicatior-mutator equation) and a stochastic model (the Moran process) to determine the dynamics of the system.
+I have been focussing on the stochastic model.
+
+I have succeeded in reproducing the behavior that is shown in the aforementioned paper for identical values of the parameters.
+The code that I have developed should be able to handle matrix games of arbitrary rank (ie. not just the Prisoner's Dilemma), however I have as yet been unable to test this functionality.
+In addition to simulating the Moran process, I have also written code to determine the transition matrix of the game between various states, and as such I am able to calculate fixation probabilites and stationary distributions for arbitrary simple matrix games.
+
 \begin{thebibliography}{9}
 
     \bibitem{julia}
@@ -35,6 +45,14 @@ The objectives of this advanced project are to:
         \emph{Julia: A Fast Dynamic Language for Technical Computing}.
         eprint \href{http://arxiv.org/pdf/1209.5145v1.pdf}{arXiv:1209.5145},
         September 2012.
+
+    \bibitem{imhofetal}
+        Lorens A. Imhof, Drew Fudenberg, Martin A. Nowak and Robert M. May,
+        \emph{Evolutionary Cycles of Cooperation and Defection}.
+        PNAS,
+        Vol. 102,
+        No. 31, 
+        2005.
 
 \end{thebibliography}
 
