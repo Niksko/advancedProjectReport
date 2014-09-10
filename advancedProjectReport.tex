@@ -30,13 +30,16 @@ The objectives of this advanced project are to:
 
 \section*{Progress}
 
-So far I have been familiarising myself with the Julia language by attempting to replicate part of the results of a paper \cite{imhofetal} which studies the iterated prisoners dilemma.
-In the paper, the authors use both a deterministic model of evolutionary dynamics (the replicatior-mutator equation) and a stochastic model (the Moran process) to determine the dynamics of the system.
-I have been focussing on the stochastic model.
-
-I have succeeded in reproducing the behavior that is shown in the aforementioned paper for identical values of the parameters.
+So far I have been familiarising myself with the Julia language by replicating part of the results of a paper \cite{imhofetal} which studies the iterated prisoners dilemma.
+I have succeeded in reproducing the behavior of the stochastic model presented in the paper using identical values of the parameters.
 The code that I have developed should be able to handle matrix games of arbitrary rank (ie. not just the Prisoner's Dilemma), however I have as yet been unable to test this functionality.
-In addition to simulating the Moran process, I have also written code to determine the transition matrix of the game between various states, and as such I am able to calculate fixation probabilites and stationary distributions for arbitrary simple matrix games.
+In addition to simulating the Moran process, I have also written code to determine the transition matrix of the game between various states, and hence the fixation probabilites and stationary distributions for arbitrary simple matrix games.
+
+\section*{Plans}
+
+The plan for the rest of the semester is to begin writing the package as soon as possible.
+This will begin with setting up and familiarising ourselves with a Github repository next week, and then beginning development of the package.
+Our first task will be to decide on the scope of the package for the remainder of the semester; what functionality we want to provide, what our method signatures are, and which external packages we will rely on.
 
 \begin{thebibliography}{9}
 
