@@ -1,0 +1,20 @@
+\section{Background}
+
+In order to understand what is involved in writing a package to perform computational evolutionary dynamics calculations, it will be useful to understand some of the game theory underpinnings of the calculations.
+While developing JEDy, we used the problem of the iterated prisoners dilemma in order to develop and test our package.
+Below we will present the problem and the mathematics behind simulating the system and solving for various quantities.
+
+\subsection{Iterated prisoner's dilemma}
+
+The prisoner's dilemma is a game involving two players.
+Each player is able to either cooperate or defect, and the four different combinations of these moves provides a different payoff to each player.
+If both players cooperate, they each receive payoff $R$.
+If both players defect, they each receive a lower payoff $P$.
+However if one player defects and the other cooperates, the cooperator receives the lowest payoff $S$, while the defector receives the highest payoff $T$.
+Therefore, we have payoffs such that $T < R < P < S$.
+
+If we play the prisoner's dilemma multiple times, we have the ability to choose strategies.
+One strategy is to always cooperate (ALLC).
+Another possible strategy would be to allways defect (ALLD).
+The best strategy know is tit-for-tat (TFT) [citation needed], where the player cooperates in the first game and then mimics the move that their opponent plays in the last game in subsequent games.
+If we have a finite number of rounds $m$ and a complexity cost $c$ that reduces the payoff for TFT, we can construct a matrix which gives the payoff for each pairing of strategies.
