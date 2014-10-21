@@ -1,8 +1,14 @@
 \section{Introduction}
 
-Computational evolutionary dynamics studies the way that populations involve when subject to inheritance of traits and mutation.
+Computational evolutionary dynamics studies the way that populations evolve when subject to inheritance of traits and mutation.
 The theoretical aspects of computational evolutionary dynamics are rooted in the mathematical discipline of game theory, however it is often useful to verify results with simulations.
 As the computations involved are generally repetitive and similar across various scenarios, it becomes useful to create packages of commonly used functions.
 
 Packages for performing evolutionary dynamics calculations exist for languages such as Python \cite{pyevodyn} an Mathematica \cite{dynamo}. however these languages are notorious for being orders of magnitude slower than C or FORTRAN.
 However high performance languages like C or FORTRAN are low level languages and as such are more difficult to read and to program in.
+In order to combine the performance of low level languages with the nice syntax of high level languages, we chose to write our package in Julia \cite{julia}.
+
+Julia is a relatively new language design for high performance scientific computing.
+It is dynamically typed, uses multiple dispatch, is designed for parallelism and distributed computing, and benchmarks have shown that it can achieve near C speeds.
+Julia also has nice features like package management, access to iPython's notebook capabilities (for embedding rich text alongside code and figures), and the ability to call C and Python code.
+Julia is still under heavy development, and this created some problems during the development of this package.
