@@ -20,14 +20,14 @@ The best strategy know is tit-for-tat (TFT) (or a minor variation of TFT) \cite{
 Since TFT has some additional complexity over ALLC or ALLD, it is natural to introduce a complexity cost for this strategy.
 If we have a finite number of rounds $m$ and a complexity cost $c$ that reduces the payoff for TFT, we can construct a matrix which gives the payoff for each pairing of strategies.
 
-\begin{equation}
+\begin{equation*}
     \bordermatrix{
         ~ & \text{ALLC} & \text{ALLD} & \text{TFT} \cr
         \text{ALLC} & Rm & Sm & Rm \cr
         \text{ALLD} & Tm & Pm & T + P(m - 1) \cr
         \text{TFT} & Rm - c & S + P(m-1) - c & Rm - c \cr
     }
-\end{equation}
+\end{equation*}
 
 \subsection{Reproduction, death and mutation: the Moran process}
 
@@ -74,3 +74,40 @@ This creates a Moran process which is essentially a random walk between states, 
 As the intensity of selection approaches 1, the mapped payoffs approach their unmapped values, and as such, play a large role in selection.
 
 Evolutionary dynamicists are often interested in the effect of intensity of selection on stationary distribution, which we will discuss in the next section.
+
+\subsection{Fixation, transition matrices and calculating stationary distribution}
+
+Another quantity of interest in evolutionary dynamics is the stationary distribution.
+The stationary distribution represents the long term proportions of time spent in the homogenous states, that is, the states where the population consists of only one strategy.
+
+In order to calculate the stationary distribution, one must first derive the transition matrix, and hence, the probability of fixation.
+
+The probability of fixation is the probability that, given a starting state where all individuals are of strategy A (the dominant strategy) but for one individual of strategy B (the mutant strategy), the population eventually transitions to a state where all individuals are of the mutant strategy.
+If we assume that the time between mutations is much larger than the time it takes for the population to fixate on one strategy, we can use this to derive a transition matrix which gives the probability of transitioning between different states.
+
+A lengthy derivation of the fixation probability can be found in \cite{traulsenhauert}, but the relevant details are that the fixation probability takes the form
+
+\begin{equation*}
+    \mathbb{P}(\text{fixation}, i \text{ mutants}) = \frac{1 + \sum_{k = 1}^{i - 1}{\prod_{j = 1}^{k}{\gamma_j}}}{1 + \sum_{k = 1}^{N - 1}{\prod_{j = 1}^{k}{\gamma_j}}}
+\end{equation*}
+
+where
+
+\begin{equation*}
+    \gamma_j = \frac{T_j^-}{T_j^+}
+\end{equation*}
+
+and where $T_j^-$ and $T_j^+$ represent the probability that the state where the mutant population is of size $j$ decreases by one or increases by one respectively.
+
+$T_j^-$ and $T_j^+$ are given by
+
+\begin{align*}
+    T_j^- & = \mathbb{P}(\text{dominant pop reproduces}) \times \mathbb{P}(\text{mutant dies}) \\
+    T_j^+ & = \mathbb{P}(\text{mutant pop reproduces}) \times \mathbb{P}(\text{dominant dies}).
+\end{align*}
+ 
+If we set $i$ equal to 1 in the equation above for fixation probability, and then enumerate all the possible combinations of dominant and mutant strategies, we can obtain the transition matrix for the process.
+The fixation probabilities along the diagonal (where dominant and mutant strategies are the same strategy) are chosen so as to keep the matrix stochastic.
+This gives us the probability that we will transition between states if a mutation happens to occur while we are in a fixated state.
+Since this is simply a markov chain process from elementary probability, in order to observe the long term distribution of states we can take the eigenvector that corresponds to the eigenvalue of 1, scale it so that it sums to 1, and thus obtain the stationary distribution for the system.
+
