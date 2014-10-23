@@ -16,5 +16,61 @@ Therefore, we have payoffs such that $T < R < P < S$.
 If we play the prisoner's dilemma multiple times, we have the ability to choose strategies.
 One strategy is to always cooperate (ALLC).
 Another possible strategy would be to allways defect (ALLD).
-The best strategy know is tit-for-tat (TFT) [citation needed], where the player cooperates in the first game and then mimics the move that their opponent plays in the last game in subsequent games.
+The best strategy know is tit-for-tat (TFT) (or a minor variation of TFT) \cite{nowaksigmund93}, where the player cooperates in the first game and then mimics the move that their opponent plays in the last game in subsequent games.
+Since TFT has some additional complexity over ALLC or ALLD, it is natural to introduce a complexity cost for this strategy.
 If we have a finite number of rounds $m$ and a complexity cost $c$ that reduces the payoff for TFT, we can construct a matrix which gives the payoff for each pairing of strategies.
+
+\begin{equation}
+    \bordermatrix{
+        ~ & \text{ALLC} & \text{ALLD} & \text{TFT} \cr
+        \text{ALLC} & Rm & Sm & Rm \cr
+        \text{ALLD} & Tm & Pm & T + P(m - 1) \cr
+        \text{TFT} & Rm - c & S + P(m-1) - c & Rm - c \cr
+    }
+\end{equation}
+
+\subsection{Reproduction, death and mutation: the Moran process}
+
+In studying the iterated prisoner's dilemma, we used the Moran process to model how populations of individuals evolve over time while playing the game.
+The Moran process can be classified as a birth-death process, where at each timestep the following steps occur in order:
+
+\begin{enumerate}
+    \item An individual is chosen to reproduce. In reality this involves choosing a strategy to reproduce with probability proportional to their fitness (to be defined later).
+    \item The offspring of the reproducing individual may mutate to one of the other strategies with equal probability $\mu$.
+    \item An individual is chosen to die. Each individual is chosen equiprobably.
+\end{enumerate}
+
+The fitness function used in the Moran process is frequency dependant.
+Given a population with $N$ individuals, with strategy populations $x_1, x_2, x_3$, and with payoff matrix $A$ with elements $a_{ij}$, the fitness function can be defined as
+
+\begin{equation*}
+    f(i) = \frac{\sum_{j = 0}^3 (a_{ij} x_j) - a_{ii} }{N - 1}
+\end{equation*}
+
+for $i \in 1, 2, 3$.
+This is essentially the average payoff given that games are played against a random opponent.
+We subtract $a_{ii}$ and divide by $N - 1$ because the player cannot play against themselves.
+
+\subsection{Intensity of selection}
+
+Another quantity of interest in computational evolutionary dynamics is the intensity of selection.
+The intensity of selection is a paramter which controls how much of a role fitness plays in selection.
+If we define $p$ to be the payoff from the game and $w$ to be the intensity of selection, we can transform the payoff values either linearly with
+
+\begin{equation*}
+    \pi(p) = 1 - w + wp, \quad w \in [0,1]
+\end{equation*}
+
+or exponentially with
+
+\begin{equation*}
+    \pi(p) = e^{wp}, \quad w \in [1, \infty).
+\end{equation*}
+
+The benefit of transforming exponentially is that this allows us to deal with negative payoffs, where as the linear intensity of selection map cannot deal with negative payoffs.
+
+As the intensity of selection approaches 0, all mapped payoffs approach 1.
+This creates a Moran process which is essentially a random walk between states, since at each timestep, each strategy is equally likely to be chosen to reproduce.
+As the intensity of selection approaches 1, the mapped payoffs approach their unmapped values, and as such, play a large role in selection.
+
+Evolutionary dynamicists are often interested in the effect of intensity of selection on stationary distribution, which we will discuss in the next section.
