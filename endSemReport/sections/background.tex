@@ -15,7 +15,7 @@ Therefore, we have payoffs such that $T < R < P < S$.
 
 If we play the prisoner's dilemma multiple times, we have the ability to choose strategies.
 One strategy is to always cooperate (ALLC).
-Another possible strategy would be to allways defect (ALLD).
+Another possible strategy would be to always defect (ALLD).
 The best strategy know is tit-for-tat (TFT) (or a minor variation of TFT) \cite{nowaksigmund93}, where the player cooperates in the first game and then mimics the move that their opponent plays in the last game in subsequent games.
 Since TFT has some additional complexity over ALLC or ALLD, it is natural to introduce a complexity cost for this strategy.
 If we have a finite number of rounds $m$ and a complexity cost $c$ that reduces the payoff for TFT, we can construct a matrix which gives the payoff for each pairing of strategies.
@@ -54,7 +54,7 @@ We subtract $a_{ii}$ and divide by $N - 1$ because the player cannot play agains
 \subsection{Intensity of selection}
 
 Another quantity of interest in computational evolutionary dynamics is the intensity of selection.
-The intensity of selection is a paramter which controls how much of a role fitness plays in selection.
+The intensity of selection is a parameter which controls how much of a role fitness plays in selection.
 If we define $p$ to be the payoff from the game and $w$ to be the intensity of selection, we can transform the payoff values either linearly with
 
 \begin{equation*}
@@ -78,7 +78,7 @@ Evolutionary dynamicists are often interested in the effect of intensity of sele
 \subsection{Fixation, transition matrices and calculating stationary distribution}
 
 Another quantity of interest in evolutionary dynamics is the stationary distribution.
-The stationary distribution represents the long term proportions of time spent in the homogenous states, that is, the states where the population consists of only one strategy.
+The stationary distribution represents the long term proportions of time spent in the homogeneous states, that is, the states where the population consists of only one strategy.
 
 In order to calculate the stationary distribution, one must first derive the transition matrix, and hence, the probability of fixation.
 
@@ -109,5 +109,5 @@ $T_j^-$ and $T_j^+$ are given by
 If we set $i$ equal to 1 in the equation above for fixation probability, and then enumerate all the possible combinations of dominant and mutant strategies, we can obtain the transition matrix for the process.
 The fixation probabilities along the diagonal (where dominant and mutant strategies are the same strategy) are chosen so as to keep the matrix stochastic.
 This gives us the probability that we will transition between states if a mutation happens to occur while we are in a fixated state.
-Since this is simply a markov chain process from elementary probability, in order to observe the long term distribution of states we can take the eigenvector that corresponds to the eigenvalue of 1, scale it so that it sums to 1, and thus obtain the stationary distribution for the system.
+Since this is simply a Markov chain process from elementary probability, in order to observe the long term distribution of states we can take the eigenvector that corresponds to the eigenvalue of 1, scale it so that it sums to 1, and thus obtain the stationary distribution for the system.
 

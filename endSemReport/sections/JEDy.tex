@@ -1,11 +1,11 @@
 \section{JEDy: Julia for Evolutionary Dynamics}
 
-The main goal of this project was to kickstart development of a package for Julia for performing the sorts of calculations outlined in the previous section.
+The main goal of this project was to kick-start development of a package for Julia for performing the sorts of calculations outlined in the previous section.
 My task was to develop the methods for dealing with evolutionary dynamics over finite populations, while my colleague Jesse Duffield developed the methods for infinite populations.
-As of writing, we have decent coverage of the methods mentioned in the previous section, and we're able to visualise these results.
+As of writing, we have decent coverage of the methods mentioned in the previous section, and we're able to visualize these results.
 
 The goal for this stage of the package's development was to be able to replicate the results found in a paper by Imhof et. al. \cite{imhofetal} which studied the Prisoner's dilemma.
-The heatmap shown in figure \ref{heatmap} is similar (though not as nicely formatted) to the diagram found in Imhof et. al., and displays the same trend found in the paper, namely, that the population spends most of its time in the homogenous TFT state.
+The heatmap shown in figure \ref{heatmap} is similar (though not as nicely formatted) to the diagram found in Imhof et. al., and displays the same trend found in the paper, namely, that the population spends most of its time in the homogeneous TFT state.
 
 \begin{figure}[h]
     \centering
@@ -16,9 +16,9 @@ The heatmap shown in figure \ref{heatmap} is similar (though not as nicely forma
 \end{figure}
 
 We can further confirm that our results match those of Imhof et. al. by studying the plot of the timeseries found in figure \ref{timeseries}.
-This plot also shows that the population spends most of its time in the homogenous TFT state.
-Furthermore, it shows tha the population tends to oscillate from homogenous TFT, to homogenous ALLC, to homogenous ALLD, then back to homogenous TFT.
-This also matches the results given in Imhof et. al., and also shows the low residence time in the homogenous ALLC state they reported.
+This plot also shows that the population spends most of its time in the homogeneous TFT state.
+Furthermore, it shows that the population tends to oscillate from homogeneous TFT, to homogeneous ALLC, to homogeneous ALLD, then back to homogeneous TFT.
+This also matches the results given in Imhof et. al., and also shows the low residence time in the homogeneous ALLC state they reported.
 
 \begin{figure}[h]
     \centering
@@ -29,7 +29,7 @@ This also matches the results given in Imhof et. al., and also shows the low res
     \label{timeseries}
 \end{figure}
 
-Finally, a plot of the intensity of selection against the stationary distribution in figure \ref{stationarydist} shows the expected behaviour:
+Finally, a plot of the intensity of selection against the stationary distribution in figure \ref{stationarydist} shows the expected behavior:
 
 \begin{itemize}
     \item When intensity of selection is close to 0, the stationary distribution is evenly split among the strategies
@@ -40,12 +40,12 @@ Finally, a plot of the intensity of selection against the stationary distributio
     \centering
     \includegraphics[width = 0.8\textwidth]{graphics/stationarydist}
     \caption{A plot of stationary distribution against intensity of selection for the iterated prisoner's dilemma using a Moran process simulation.
-        Parameters are $N = 60, T = 5, R = 3, P = 1, S = 0.1, m = 10, c = 0.8$ with mutation rate $\mu = 1 \times 10^{-3}$ and with linear intensity of selection and intensity of selection between $1 \times 10^{-5}$ and 1 in 1000 setps distributed logarithmically.
+        Parameters are $N = 60, T = 5, R = 3, P = 1, S = 0.1, m = 10, c = 0.8$ with mutation rate $\mu = 1 \times 10^{-3}$ and with linear intensity of selection and intensity of selection between $1 \times 10^{-5}$ and 1 in 1000 steps distributed logarithmically.
         The stationary distribution is evenly distributed among the strategies when intensity of selection is close to zero, as expected.
     When the stationary distribution is close to one, the stationary distribution is dominated by the TFT state, also as expected.}
     \label{stationarydist}
 \end{figure}
 
 In addition to these functions dealing with finite populations, JEDy can also deal with simulations involving infinite populations.
-This portion of the package was handled by my colleage Jesse Duffield.
-In short, the infinite population functios are able to simulate the prisoner's dilemma using the replicatior and replicator-mutator equations \cite{imhofetal}, as well as visualise the results using phase portraits and vector field diagrams.
+This portion of the package was handled by my colleague Jesse Duffield.
+In short, the infinite population functions are able to simulate the prisoner's dilemma using the replicator and replicator-mutator equations \cite{imhofetal}, as well as visualize the results using phase portraits and vector field diagrams.
