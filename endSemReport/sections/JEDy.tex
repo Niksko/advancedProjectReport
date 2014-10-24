@@ -17,6 +17,8 @@ The heatmap shown in figure \ref{heatmap} is similar (though not as nicely forma
 
 We can further confirm that our results match those of Imhof et. al. by studying the plot of the timeseries found in figure \ref{timeseries}.
 This plot also shows that the population spends most of its time in the homogenous TFT state.
+Furthermore, it shows tha the population tends to oscillate from homogenous TFT, to homogenous ALLC, to homogenous ALLD, then back to homogenous TFT.
+This also matches the results given in Imhof et. al., and also shows the low residence time in the homogenous ALLC state they reported.
 
 \begin{figure}[h]
     \centering
@@ -27,7 +29,12 @@ This plot also shows that the population spends most of its time in the homogeno
     \label{timeseries}
 \end{figure}
 
-Finally, a plot of the intensity of selection against the stationary distribution in figure \ref{stationarydist} shows the expected behaviour.
+Finally, a plot of the intensity of selection against the stationary distribution in figure \ref{stationarydist} shows the expected behaviour:
+
+\begin{itemize}
+    \item When intensity of selection is close to 0, the stationary distribution is evenly split among the strategies
+    \item When intensity of selection is close to 1, the TFT strategy dominates.
+\end{itemize}
 
 \begin{figure}[h]
     \centering
